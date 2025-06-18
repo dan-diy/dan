@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC-CMF 폐수처리 기술 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 350px;
+            }
+        }
+        .kpi-value {
+            font-weight: 900;
+            color: #ff764a;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #7a5195;
+            line-height: 1;
+        }
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-custom th, .table-custom td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: center;
+        }
+        .table-custom th {
+            background-color: #f8fafc;
+            font-weight: bold;
+        }
+        .table-custom tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+        .highlight-good {
+            color: #16a34a; /* green-600 */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black mb-4" style="color: #003f5c;">혁신적 폐수처리 기술: 전해응집(EC)과 세라믹 멤브레인(CMF)의 시너지</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">기존 방식의 한계를 넘어, 고농도 산업 폐수와 병원 폐수 속 난분해성 물질까지 완벽하게 처리하는 차세대 하이브리드 솔루션을 소개합니다.</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="challenge">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">도전 과제: 복잡해지는 폐수와 기존 기술의 한계</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-center items-center text-center">
+                        <h3 class="text-xl font-bold mb-2" style="color: #7a5195;">병원 폐수의 심각성</h3>
+                        <p class="text-gray-600 mb-4">높은 농도의 화학적 산소 요구량(COD)은 수질을 심각하게 오염시킵니다.</p>
+                        <p class="text-5xl kpi-value">최대 7,764</p>
+                        <p class="text-lg font-semibold">mg/L (COD)</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-center items-center text-center">
+                        <h3 class="text-xl font-bold mb-2" style="color: #7a5195;">반도체 폐수의 난제</h3>
+                        <p class="text-gray-600 mb-4">장비 마모 및 공정 문제를 유발하는 고농도 실리카를 포함합니다.</p>
+                        <p class="text-5xl kpi-value">최대 2,000</p>
+                        <p class="text-lg font-semibold">mg/L (실리카)</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2" style="color: #7a5195;">신흥 오염물질(ECs) 처리 한계</h3>
+                        <p class="text-gray-600 text-center mb-2">기존 물리적 처리 방식은 의약품, 미세플라스틱 등 신흥 오염물질 제거에 비효율적입니다.</p>
+                        <div class="chart-container" style="height:250px; max-height:250px;">
+                            <canvas id="ecsRemovalChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">솔루션: EC-CMF 하이브리드 공정</h2>
+                 <div class="bg-white rounded-xl shadow-lg p-8">
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">전해응집(EC)으로 오염물질을 1차 응집하고, 침전 조정조에서 부유 물질을 제거한 뒤, 물리적으로 견고한 세라믹 멤브레인(CMF)으로 미세 입자까지 완벽하게 여과하는 다단계 통합 시스템입니다. 이 추가 공정은 세라믹 멤브레인의 부하를 줄여 효율과 수명을 극대화합니다.</p>
+                    <div class="flex flex-col xl:flex-row items-center justify-center space-y-4 xl:space-y-0 xl:space-x-2 text-center">
+                        <div class="p-4 rounded-lg flex-1" style="background-color: #e0e7ff;">
+                            <p class="text-xl font-bold mb-1" style="color: #374c80;">1단계</p>
+                            <p class="font-semibold">오염 폐수 유입</p>
+                            <span class="text-3xl">💧</span>
+                        </div>
+                        <div class="transform xl:rotate-0 rotate-90 flow-arrow">➔</div>
+                        <div class="p-4 rounded-lg flex-1" style="background-color: #ffe4e1;">
+                            <p class="text-xl font-bold mb-1" style="color: #bc5090;">2단계: 전해응집 (EC)</p>
+                            <p class="font-semibold">오염물질 응집/부상</p>
+                             <span class="text-3xl">⚡</span>
+                        </div>
+                        <div class="transform xl:rotate-0 rotate-90 flow-arrow">➔</div>
+                        <div class="p-4 rounded-lg flex-1" style="background-color: #d1fae5;">
+                            <p class="text-xl font-bold mb-1" style="color: #065f46;">3단계: 침전 조정조</p>
+                            <p class="font-semibold">부유물질 제거</p>
+                             <span class="text-3xl">⏳</span>
+                        </div>
+                        <div class="transform xl:rotate-0 rotate-90 flow-arrow">➔</div>
+                        <div class="p-4 rounded-lg flex-1" style="background-color: #fff3e0;">
+                            <p class="text-xl font-bold mb-1" style="color: #ff764a;">4단계: 세라믹 멤브레인 (CMF)</p>
+                            <p class="font-semibold">미세입자 완벽 여과</p>
+                             <span class="text-3xl">🧱</span>
+                        </div>
+                        <div class="transform xl:rotate-0 rotate-90 flow-arrow">➔</div>
+                        <div class="p-4 rounded-lg flex-1" style="background-color: #e0f2f1;">
+                            <p class="text-xl font-bold mb-1" style="color: #00796b;">5단계: 결과</p>
+                            <p class="font-semibold">깨끗한 처리수</p>
+                             <span class="text-3xl">✨</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="deep-dive">
+                 <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">핵심 기술 상세 분석</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2" style="color: #7a5195;">전해응집(EC) vs 화학응집</h3>
+                        <p class="text-gray-600 text-center mb-4">전해응집은 별도의 화학약품 없이 전기로 응집제를 생성하여 2차 오염과 슬러지 발생을 획기적으로 줄입니다.</p>
+                        <div class="chart-container">
+                            <canvas id="coagulationComparisonChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2" style="color: #7a5195;">세라믹 멤브레인 vs 고분자 멤브레인</h3>
+                        <p class="text-gray-600 text-center mb-4">세라믹 멤브레인은 월등한 내구성, 내열성, 내화학성으로 긴 수명과 안정적인 운영을 보장합니다.</p>
+                        <div class="chart-container">
+                            <canvas id="membraneComparisonChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="synergy">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">시너지 효과: 막 오염(Fouling) 문제 해결</h2>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                     <p class="text-center text-gray-600 mb-4 max-w-3xl mx-auto">EC 공정과 후속 침전조가 막 오염(Fouling)을 유발하는 큰 입자와 부유 물질을 사전에 효과적으로 제거함으로써, CMF의 투과 성능(Flux)을 장시간 더욱 안정적으로 유지시킵니다. 이는 멤브레인의 부하를 줄여 유지보수 비용 절감과 시스템 수명 연장으로 이어집니다.</p>
+                    <div class="chart-container md:col-span-2">
+                        <canvas id="fluxComparisonChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="performance">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">입증된 처리 성능: 다양한 폐수 대응 능력</h2>
+                 <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-center text-gray-600 mb-4 max-w-3xl mx-auto">병원, 반도체, 도금 등 각기 다른 특성의 고농도 폐수뿐만 아니라 석회 성분이 다량 포함된 지하수 처리에도 EC-CMF 시스템은 국내 배출 기준을 월등히 만족하거나, 재이용에 적합한 수질을 달성하는 높은 오염물질 제거율을 기록했습니다.</p>
+                    <div class="chart-container md:col-span-2" style="max-width: 900px; height: 450px;">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="mt-8 overflow-x-auto">
+                        <h3 class="text-2xl font-bold text-center mb-4" style="color: #003f5c;">주요 오염물질 처리 결과 및 법적 기준 비교</h3>
+                        <table class="table-custom">
+                            <thead>
+                                <tr>
+                                    <th>폐수 종류</th>
+                                    <th>오염 물질</th>
+                                    <th>처리 후 농도 (mg/L)</th>
+                                    <th>국내 배출 허용 기준 (mg/L)</th>
+                                    <th>기준 만족 여부</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2">병원 폐수</td>
+                                    <td>COD</td>
+                                    <td>36.5</td>
+                                    <td>130 (나 지역)</td>
+                                    <td class="highlight-good">✓ 만족</td>
+                                </tr>
+                                 <tr>
+                                    <td>TSS</td>
+                                    <td>&lt; 5</td>
+                                    <td>120 (나 지역)</td>
+                                    <td class="highlight-good">✓ 만족</td>
+                                </tr>
+                                <tr>
+                                    <td>반도체 폐수</td>
+                                    <td>실리카(SiO₂)</td>
+                                    <td>&lt; 10</td>
+                                    <td>별도 기준 없음 (공정 안정성에 중요)</td>
+                                    <td class="highlight-good">✓ 우수</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">도금 폐수</td>
+                                    <td>6가 크롬(Cr⁶⁺)</td>
+                                    <td>&lt; 0.1</td>
+                                    <td>2 (청정지역)</td>
+                                    <td class="highlight-good">✓ 만족</td>
+                                </tr>
+                                <tr>
+                                    <td>아연(Zn)</td>
+                                    <td>&lt; 0.1</td>
+                                    <td>5 (청정지역)</td>
+                                    <td class="highlight-good">✓ 만족</td>
+                                </tr>
+                                <tr>
+                                    <td>석회 포함 지하수</td>
+                                    <td>칼슘 경도(CaCO₃)</td>
+                                    <td>&lt; 50</td>
+                                    <td>별도 기준 없음 (스케일 방지 중요)</td>
+                                    <td class="highlight-good">✓ 우수</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-right text-gray-500 mt-2">* 상기 데이터는 실제 운영 사례를 기반으로 한 대표값이며, 폐수 특성에 따라 달라질 수 있습니다.<br>* 배출 허용 기준은 「물환경보전법 시행규칙」 별표13에 따름 (가장 일반적인 '나'지역 및 '청정'지역 기준 적용).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="economics">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">경제성 분석</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2" style="color: #7a5195;">규모의 경제: 용량별 처리 비용</h3>
+                        <p class="text-gray-600 text-center mb-4">처리 용량이 증가할수록 톤당 처리 비용이 감소하여 대규모 시설에서 경제적 효율성이 극대화됩니다.</p>
+                        <div class="chart-container">
+                            <canvas id="costByCapacityChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2" style="color: #7a5195;">운영 비용(OPEX) 구성</h3>
+                        <p class="text-gray-600 text-center mb-4">에너지 비용이 가장 큰 비중을 차지하며, 전극 및 멤브레인 등 핵심 소모품의 장기적인 교체 비용 관리가 중요합니다.</p>
+                        <div class="chart-container" style="height:300px; max-height:300px;">
+                            <canvas id="opexChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <section id="future">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">미래 전망: AI 기반 스마트 운영</h2>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">인공지능(AI)과 디지털 트윈 기술을 접목하여 폐수 처리 공정을 더욱 스마트하게 관리할 수 있습니다. 이를 통해 운영 효율을 극대화하고 잠재적 문제를 사전에 예방합니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div class="p-4 border-2 rounded-lg" style="border-color: #7a5195;">
+                            <span class="text-4xl">🔮</span>
+                            <h4 class="font-bold text-lg mt-2" style="color: #7a5195;">수질 예측</h4>
+                            <p class="text-sm text-gray-600">유입수 변화에 따른 처리수 수질을 예측하여 선제적으로 대응합니다.</p>
+                        </div>
+                        <div class="p-4 border-2 rounded-lg" style="border-color: #bc5090;">
+                            <span class="text-4xl">🔧</span>
+                            <h4 class="font-bold text-lg mt-2" style="color: #bc5090;">예지 보전</h4>
+                            <p class="text-sm text-gray-600">센서 데이터 분석으로 설비 고장 징후를 사전 감지하고 교체 시점을 예측합니다.</p>
+                        </div>
+                        <div class="p-4 border-2 rounded-lg" style="border-color: #ef5675;">
+                            <span class="text-4xl">💡</span>
+                            <h4 class="font-bold text-lg mt-2" style="color: #ef5675;">에너지 최적화</h4>
+                            <p class="text-sm text-gray-600">실시간 부하에 맞춰 펌프, SMPS 가동을 최적화하여 전력 소비를 최소화합니다.</p>
+                        </div>
+                         <div class="p-4 border-2 rounded-lg" style="border-color: #ff764a;">
+                            <span class="text-4xl">🤖</span>
+                            <h4 class="font-bold text-lg mt-2" style="color: #ff764a;">운전 자동화</h4>
+                            <p class="text-sm text-gray-600">AI 기반 의사결정으로 24시간 무인 운전 및 공정 최적화를 실현합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ai-solution">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #003f5c;">AI 기반 맞춤형 폐수 처리 솔루션 ✨</h2>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-gray-600 mb-4 text-center">처리하고자 하는 폐수의 유형이나 포함된 주요 오염물질에 대해 간략히 설명해 주세요. AI가 EC-CMF 기술의 적용 가능성과 기대 효과를 제안해 드립니다.</p>
+                    <textarea id="wastewaterInput" class="w-full p-3 border border-gray-300 rounded-md mb-4 resize-y min-h-[100px]" placeholder="예: '섬유 염색 폐수', '제약 공장 폐수', '중금속 포함 폐수' 등"></textarea>
+                    <button id="getSolutionBtn" class="w-full bg-blue-500 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-600 transition-colors duration-200" style="background-color: #7a5195;">솔루션 제안 받기 ✨</button>
+                    <div id="loadingIndicator" class="mt-4 text-center text-gray-500 hidden">제안을 생성 중입니다... 잠시만 기다려 주세요.</div>
+                    <div id="solutionResponse" class="mt-4 p-4 border border-gray-200 rounded-md bg-gray-50 text-gray-700 whitespace-pre-wrap"></div>
+                    
+                    <!-- 이메일 입력 및 전송 버튼 섹션 (AI 응답 후 표시) -->
+                    <div id="emailSection" class="mt-6 hidden">
+                        <p class="text-gray-600 mb-2 text-center">생성된 솔루션을 이메일로 받아보세요:</p>
+                        <input type="email" id="emailInput" class="w-full p-3 border border-gray-300 rounded-md mb-4" placeholder="이메일 주소를 입력해주세요 (예: your@example.com)">
+                        <button id="sendEmailBtn" class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-md hover:bg-green-600 transition-colors duration-200" style="background-color: #00796b;">이메일로 솔루션 보내기 ✉️</button>
+                        <div id="emailStatus" class="mt-2 text-center text-sm text-gray-500"></div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-gray-500">본 인포그래픽은 제공된 기술 보고서 및 관련 법규를 기반으로 제작되었습니다.</p>
+        </footer>
+    </div>
+
+<script>
+const COLORS = {
+    blue_dark: '#003f5c',
+    purple_deep: '#374c80',
+    purple: '#7a5195',
+    magenta: '#bc5090',
+    pink: '#ef5675',
+    orange: '#ff764a',
+    yellow: '#ffa600'
+};
+
+const FONT_COLOR = '#374251';
+const GRID_COLOR = '#e0e0e0';
+
+Chart.defaults.color = FONT_COLOR;
+Chart.defaults.font.family = "'Noto Sans KR', sans-serif";
+
+function wrapLabels(label, max_width) {
+    if (typeof label !== 'string' || label.length <= max_width) {
+        return label;
+    }
+    const words = label.split(' ');
+    let lines = [];
+    let current_line = '';
+    for (const word of words) {
+        if ((current_line + ' ' + word).trim().length > max_width && current_line.length > 0) {
+            lines.push(current_line);
+            current_line = word;
+        } else {
+            current_line = (current_line + ' ' + word).trim();
+        }
+    }
+    if (current_line.length > 0) {
+        lines.push(current_line);
+    }
+    return lines;
+}
+
+const tooltipTitleCallback = (tooltipItems) => {
+    const item = tooltipItems[0];
+    let label = item.chart.data.labels[item.dataIndex];
+    if (Array.isArray(label)) {
+      return label.join(' ');
+    } else {
+      return label;
+    }
+};
+
+new Chart(document.getElementById('ecsRemovalChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['제거 효율', '미제거'],
+        datasets: [{
+            data: [25, 75],
+            backgroundColor: [COLORS.pink, '#e0e0e0'],
+            borderColor: '#ffffff',
+            borderWidth: 4,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: { enabled: true },
+            title: {
+                display: true,
+                text: '기존 물리적 처리 효율 (20-30%)',
+                font: { size: 14, weight: 'bold' },
+                padding: { top: 10, bottom: 10 }
+            }
+        }
+    }
+});
+
+new Chart(document.getElementById('coagulationComparisonChart'), {
+    type: 'bar',
+    data: {
+        labels: ['슬러지 발생량', '화학약품 사용량', '2차 오염 우려'],
+        datasets: [{
+            label: '화학응집',
+            data: [100, 100, 80],
+            backgroundColor: COLORS.magenta,
+            borderRadius: 5
+        }, {
+            label: '전해응집(EC)',
+            data: [40, 0, 10],
+            backgroundColor: COLORS.orange,
+            borderRadius: 5
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: { color: GRID_COLOR },
+                ticks: {
+                    callback: function(value) { return value + '%' }
+                }
+            },
+            x: { grid: { display: false } }
+        },
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback,
+                    label: function(context) {
+                        return `${context.dataset.label}: ${context.raw}%`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+new Chart(document.getElementById('membraneComparisonChart'), {
+    type: 'radar',
+    data: {
+        labels: ['내구성', '내열성', '내화학성', '수명(10+년)', '초기비용'],
+        datasets: [{
+            label: '세라믹 멤브레인',
+            data: [95, 90, 95, 90, 40],
+            backgroundColor: 'rgba(255, 118, 74, 0.2)',
+            borderColor: COLORS.orange,
+            pointBackgroundColor: COLORS.orange,
+        }, {
+            label: '고분자 멤브레인',
+            data: [60, 50, 60, 20, 90],
+            backgroundColor: 'rgba(122, 81, 149, 0.2)',
+            borderColor: COLORS.purple,
+            pointBackgroundColor: COLORS.purple,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            r: {
+                beginAtZero: true,
+                max: 100,
+                grid: { color: GRID_COLOR },
+                pointLabels: { font: { size: 13 } },
+                angleLines: { color: GRID_COLOR }
+            }
+        },
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                }
+            }
+        }
+    }
+});
+
+new Chart(document.getElementById('fluxComparisonChart'), {
+    type: 'line',
+    data: {
+        labels: ['시작', '6시간 후', '12시간 후', '18시간 후', '24시간 후'],
+        datasets: [{
+            label: 'EC + 침전 + CMF (개선된 하이브리드)',
+            data: [210, 208, 205, 202, 200],
+            borderColor: COLORS.orange,
+            backgroundColor: 'rgba(255, 118, 74, 0.1)',
+            fill: true,
+            tension: 0.1
+        }, {
+            label: 'CMF 단독',
+            data: [210, 150, 110, 80, 60],
+            borderColor: COLORS.magenta,
+            backgroundColor: 'rgba(188, 80, 144, 0.1)',
+            fill: true,
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: { display: true, text: '투과 플럭스 (LMH)' },
+                grid: { color: GRID_COLOR }
+            },
+            x: {
+                title: { display: true, text: '운전 시간' },
+                grid: { display: false }
+            }
+        },
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: { mode: 'index', intersect: false }
+        }
+    }
+});
+
+new Chart(document.getElementById('performanceChart'), {
+    type: 'bar',
+    data: {
+        labels: [
+            wrapLabels('COD', 16),
+            wrapLabels('TSS', 16),
+            wrapLabels('Cr (크롬)', 16),
+            wrapLabels('Zn (아연)', 16),
+            wrapLabels('Ca 경도 (CaCO₃)', 16)
+        ],
+        datasets: [{
+            label: '병원 폐수',
+            data: [95.3, 99, null, null, null],
+            backgroundColor: COLORS.blue_dark
+        }, {
+            label: '도금 폐수',
+            data: [null, null, 99.9, 99.9, null],
+            backgroundColor: COLORS.orange
+        }, {
+            label: '석회 포함 지하수',
+            data: [null, null, null, null, 95],
+            backgroundColor: COLORS.pink
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: { display: true, text: '오염물질 제거율 (%)' },
+                grid: { color: GRID_COLOR }
+            },
+            x: { grid: { display: false } }
+        },
+        plugins: {
+            legend: { position: 'top' },
+             title: {
+                display: true,
+                text: '폐수 종류별 오염물질 제거율(%)',
+                font: { size: 16, weight: 'bold' },
+                padding: { bottom: 20 }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        if (context.raw !== null) {
+                            return `${context.dataset.label}: ${context.raw}%`;
+                        }
+                        return null;
+                    }
+                }
+            }
+        }
+    }
+});
+
+new Chart(document.getElementById('costByCapacityChart'), {
+    type: 'bar',
+    data: {
+        labels: ['20 TPD', '50 TPD', '100 TPD'],
+        datasets: [{
+            label: '평균 처리 비용 (원/톤)',
+            data: [3000, 2500, 2150],
+            backgroundColor: [COLORS.blue_dark, COLORS.purple, COLORS.orange],
+            borderColor: '#ffffff',
+            borderWidth: 2,
+            borderRadius: 5,
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                beginAtZero: true,
+                title: { display: true, text: '처리 비용 (원/톤)' },
+                grid: { color: GRID_COLOR }
+            },
+            y: { grid: { display: false } }
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return ` ${context.raw.toLocaleString()} 원/톤`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+new Chart(document.getElementById('opexChart'), {
+    type: 'pie',
+    data: {
+        labels: ['에너지(전력)', '전극 교체', '멤브레인 교체/세정', '인건비 및 기타'],
+        datasets: [{
+            data: [45, 25, 15, 15],
+            backgroundColor: [COLORS.orange, COLORS.yellow, COLORS.pink, COLORS.purple_deep],
+            borderColor: '#ffffff',
+            borderWidth: 4,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return ` ${context.label}: ${context.raw}%`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+const wastewaterInput = document.getElementById('wastewaterInput');
+const getSolutionBtn = document.getElementById('getSolutionBtn');
+const loadingIndicator = document.getElementById('loadingIndicator');
+const solutionResponse = document.getElementById('solutionResponse');
+const emailSection = document.getElementById('emailSection');
+const emailInput = document.getElementById('emailInput');
+const sendEmailBtn = document.getElementById('sendEmailBtn');
+const emailStatus = document.getElementById('emailStatus');
+
+
+getSolutionBtn.addEventListener('click', async () => {
+    const userInput = wastewaterInput.value.trim();
+    if (!userInput) {
+        solutionResponse.textContent = '폐수 유형을 입력해 주세요.';
+        return;
+    }
+
+    loadingIndicator.classList.remove('hidden');
+    solutionResponse.textContent = '';
+    emailSection.classList.add('hidden'); // AI 답변 생성 전에는 이메일 섹션 숨기기
+    emailStatus.textContent = '';
+
+    try {
+        const prompt = `알루미늄 전극 전해응집(EC)과 침전조, 그리고 세라믹 멤브레인 여과(CMF)를 조합한 폐수처리 기술의 장점(높은 제거 효율, 2차 오염 감소, 막 오염 제어, 견고한 내구성)을 고려하여, '${userInput}'(와)과 같은 특정 유형의 폐수에 이 기술을 어떻게 적용할 수 있는지, 그리고 기대되는 효과는 무엇인지 설명해 주세요. 최대 200단어 이내로 답변해주세요.`;
+        
+        let chatHistory = [];
+        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+        const payload = { contents: chatHistory };
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        if (result.candidates && result.candidates.length > 0 &&
+            result.candidates[0].content && result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0) {
+            const text = result.candidates[0].content.parts[0].text;
+            solutionResponse.textContent = text;
+            emailSection.classList.remove('hidden'); // AI 답변 생성 성공 시 이메일 섹션 표시
+        } else {
+            solutionResponse.textContent = '솔루션을 생성하는 데 실패했습니다. 다시 시도해 주세요.';
+        }
+    } catch (error) {
+        console.error('Error calling Gemini API:', error);
+        solutionResponse.textContent = 'API 호출 중 오류가 발생했습니다: ' + error.message;
+    } finally {
+        loadingIndicator.classList.add('hidden');
+    }
+});
+
+sendEmailBtn.addEventListener('click', () => {
+    const emailAddress = emailInput.value.trim();
+    const solutionText = solutionResponse.textContent.trim();
+    const wastewaterType = wastewaterInput.value.trim();
+
+    if (!emailAddress) {
+        emailStatus.textContent = '이메일 주소를 입력해 주세요.';
+        emailStatus.style.color = '#dc2626'; // Red color for error
+        return;
+    }
+
+    if (!solutionText) {
+        emailStatus.textContent = '아직 생성된 솔루션이 없습니다. 먼저 솔루션을 제안받아 주세요.';
+        emailStatus.style.color = '#dc2626';
+        return;
+    }
+
+    const subject = encodeURIComponent(`[EC-CMF 폐수처리] ${wastewaterType} 폐수 솔루션 제안`);
+    const body = encodeURIComponent(`안녕하세요.\n\n요청하신 폐수(${wastewaterType})에 대한 EC-CMF 기술 기반 솔루션 제안입니다.\n\n${solutionText}\n\n더 자세한 문의사항은 언제든지 연락 주시기 바랍니다.\n감사합니다.`);
+
+    const mailtoLink = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+
+    emailStatus.textContent = '이메일 클라이언트가 열립니다. 내용을 확인 후 메일을 보내주세요.';
+    emailStatus.style.color = '#16a34a'; // Green color for success
+});
+
+</script>
+
+</body>
+</html>
