@@ -662,8 +662,10 @@ getSolutionBtn.addEventListener('click', async () => {
         let chatHistory = [];
         chatHistory.push({ role: "user", parts: [{ text: prompt }] });
         const payload = { contents: chatHistory };
-        // Gemini API 키를 여기에 붙여넣으세요. "YOUR_ACTUAL_GEMINI_API_KEY_HERE"를 실제 키로 교체해야 합니다.
-        const apiKey = "YOUR_ACTUAL_GEMINI_API_KEY_HERE"; 
+        // Gemini API 키를 여기에 붙여넣으세요. "YOUR_UNIQUE_AND_SECRET_GEMINI_API_KEY_GOES_HERE"를 실제 키로 교체해야 합니다.
+        // 이 오류는 `apiKey` 변수에 `curl` 명령어 전체가 삽입되어 발생했습니다.
+        // `apiKey` 변수에는 발급받으신 실제 API 키 문자열만 들어가야 합니다.
+        const apiKey = "AIzaSyDxMUDq8q_fJsxt5H-0gWXQE_w1hOTZcsg"; 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(apiUrl, {
